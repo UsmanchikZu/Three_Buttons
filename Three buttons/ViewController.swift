@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    private var isPressed = false
+    
     private lazy var firstButton: UIButton = {
         let button = UIButton(configuration: .filled())
         
@@ -33,7 +35,7 @@ class ViewController: UIViewController {
         button.setImage(UIImage(systemName: "arrow.forward.circle.fill"), for: .normal)
         button.semanticContentAttribute = .forceRightToLeft
         button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(secondButtonTap), for: [.touchUpInside, .touchDown, .touchUpOutside])
+        button.addTarget(self, action: #selector(secondButtonTap), for: [.touchDown, .touchUpInside, .touchUpOutside])
         button.configuration?.titlePadding = 8
         button.configuration?.imagePadding = 8
         button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 14, bottom: 10, trailing: 14)
@@ -49,29 +51,13 @@ class ViewController: UIViewController {
         button.setImage(UIImage(systemName: "arrow.forward.circle.fill"), for: .normal)
         button.semanticContentAttribute = .forceRightToLeft
         button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(thirdButtonTap), for: .touchUpInside)
+        button.addTarget(self, action: #selector(thirdButtonTap), for: [.touchDown, .touchUpInside, .touchUpOutside])
         button.configuration?.titlePadding = 8
         button.configuration?.imagePadding = 8
         button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 14, bottom: 10, trailing: 14)
         
         return button
     }()
-    
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        
-        stackView.addArrangedSubview(firstButton)
-        stackView.addArrangedSubview(secondButton)
-        stackView.addArrangedSubview(thirdButton)
-        
-        stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
-        stackView.spacing = 10
-        
-        return stackView
-    }()
-
-    private var isPressed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
