@@ -11,50 +11,37 @@ class ViewController: UIViewController {
     
     private var isPressed = false
     
-    private lazy var firstButton: UIButton = {
-        let button = UIButton(configuration: .filled())
+    private lazy var firstButton: MyButton = {
+        let button = MyButton()
         
-        button.setTitle("First Button", for: .normal)
-        button.backgroundColor = .systemGray3
-        button.setImage(UIImage(systemName: "arrow.forward.circle.fill"), for: .normal)
-        button.semanticContentAttribute = .forceRightToLeft
+        button.title = "First Button"
+        button.image = UIImage(systemName: "arrow.forward.circle.fill")
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(firstButtonTap), for: [.touchDown, .touchUpInside, .touchUpOutside])
-        button.configuration?.titlePadding = 8
-        button.configuration?.imagePadding = 8
-        button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 14, bottom: 10, trailing: 14)
-        
+
         return button
     }()
     
-    private lazy var secondButton: UIButton = {
-        let button = UIButton(configuration: .filled())
+
+    private lazy var secondButton: MyButton = {
+        let button = MyButton()
         
-        button.setTitle("Second Medium Button", for: .normal)
-        button.backgroundColor = .systemGray3
-        button.setImage(UIImage(systemName: "arrow.forward.circle.fill"), for: .normal)
-        button.semanticContentAttribute = .forceRightToLeft
+        button.title = "Second Medium Button"
+        button.image = UIImage(systemName: "arrow.forward.circle.fill")
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(secondButtonTap), for: [.touchDown, .touchUpInside, .touchUpOutside])
-        button.configuration?.titlePadding = 8
-        button.configuration?.imagePadding = 8
-        button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 14, bottom: 10, trailing: 14)
         
         return button
     }()
     
-    private lazy var thirdButton: UIButton = {
-        let button = UIButton(configuration: .filled())
+    private lazy var thirdButton: MyButton = {
+        let button = MyButton()
         
-        button.setTitle("Third", for: .normal)
-        button.backgroundColor = .systemGray3
-        button.setImage(UIImage(systemName: "arrow.forward.circle.fill"), for: .normal)
-        button.semanticContentAttribute = .forceRightToLeft
+        button.title = "Third"
+        button.titleLabel?.textColor = .white
+        button.image = UIImage(systemName: "arrow.forward.circle.fill")
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(thirdButtonTap), for: [.touchDown, .touchUpInside, .touchUpOutside])
-        button.configuration?.titlePadding = 8
-        button.configuration?.imagePadding = 8
-        button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 14, bottom: 10, trailing: 14)
         
         return button
     }()
@@ -153,6 +140,7 @@ class ViewController: UIViewController {
                 self.thirdButton.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
             }
         }
+        
         present(ButtonTap(), animated: true)
     }
 }
