@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Three buttons
 //
-//  Created by aeroclub on 04.11.2024.
+//  Created by on 04.11.2024.
 //
 
 import UIKit
@@ -144,4 +144,3 @@ class ViewController: UIViewController {
         present(ButtonTap(), animated: true)
     }
 }
-

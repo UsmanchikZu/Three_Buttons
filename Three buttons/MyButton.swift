@@ -2,7 +2,7 @@
 //  MyButton.swift
 //  Three buttons
 //
-//  Created by aeroclub on 06.11.2024.
+//  Created by on 06.11.2024.
 //
 
 import UIKit
@@ -19,8 +19,6 @@ class MyButton: UIButton {
         didSet {
             setImage(image, for: .normal)
             setImage(image, for: .highlighted)
-//            setImage(UIImage(named: "arrow.forward.circle.fill"), for: .normal)
-//            setImage(UIImage(named: "arrow.forward.circle.fill"), for: .highlighted)
         }
     }
     
@@ -45,12 +43,15 @@ class MyButton: UIButton {
     override func tintColorDidChange() {
         super.tintColorDidChange()
         
-        if tintAdjustmentMode == .dimmed {
+        if
+            tintAdjustmentMode == .dimmed
+        {
             backgroundColor = .systemGray2
-            setTitleColor(.systemGray3, for: .normal)
-        } else {
+            titleLabel?.textColor = . systemGray3
+            imageView?.tintColor = .systemGray3
+        }
+        else {
             backgroundColor = .systemBlue
-//            setTitleColor(.white, for: .normal)
         }
     }
 }
